@@ -1,0 +1,12 @@
+'use strict';
+const router = require('express').Router();
+const c = require('../controllers/investigationController');
+const { asyncH } = require('../middleware/errorHandler');
+router.get('/:id/bundle', asyncH(c.getBundle));
+router.post('/:id/analyse', asyncH(c.analyse));
+router.get('/:id/entities', asyncH(c.getEntities));
+router.get('/:id/risk', asyncH(c.getRisk));
+router.get('/:id/score', asyncH(c.getScore));
+router.get('/:id/relationships', asyncH(c.getRelationships));
+router.get('/:id/timeline', asyncH(c.getTimeline));
+module.exports = router;
